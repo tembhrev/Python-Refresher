@@ -223,6 +223,128 @@ values()
 update(): This method merges key:value pairs from the new dictionary into the original dictionary, adding pr replacing as needed.
 
 cmp()- deprecated in python 3
+---------------------------------
+
+The python lists are containers that are used to store a list of values of any type.
+lists are mutable
+[]
+[1,2,3]
+[1, 2.5, 3.7, 9]
+['a', 'b', 'c']
+
+Creating list
+-------------
+L = list()
+L = list(<sequence>)
+
+l1 = list(input('Enter list elements: '))
+Enter list elements: 234567
+['2', '3', '4', '5', '6', '7']
+
+list = eval(input("Enter list to be added: "))
+Enter list to be added: [67, 78, 46, 23]
+[67, 78, 46, 23]
+
+Accessing lists
+----------------
+Lists are stored in memory exactly like strings, except that  because some of their
+objects are larger than others, they store a reference at each index instead of single character as in strings.
+
+Each of the individual items of the list are stored somewhere else in memory.
+
+len(L)
+Indexing and Slicing
+Memebership operators -'in' and 'not in'
+
+Concatenation  and replication operators + and *
+
+List Operations
+----------------
+>>> lst1 = [1, 3, 5]
+		 
+>>> lst2 = [6, 7, 8]
+		 
+>>> lst1 + lst2
+		 
+[1, 3, 5, 6, 7, 8]
+
+list + number --> Error
+list + complex-number --> Error
+list + string  --> Error
+
+Repeating or Replicating lists
+>>> lst1 * 3
+		 
+[1, 3, 5, 1, 3, 5, 1, 3, 5]
+
+Slicing the lists
+seq = L[start:stop]
+seq = L[start:stop:step]
+
+Working with Lists
+-------------------
+L.append(item)
+
+L[index] = <new value> --->Updating Elements to a list
+
+Deleting Elements from a list
+
+del List[<index>]
+del List[<start>:<stop>]
+
+pop() --> method removes an individual item and returns it.
+
+List.pop(<index>) # index optional; if skipped, last element is deleted.
+
+The pop() method is useful only when you want to store the element being deleting for later use.
+The pop() method raises an exception(runtime error) if the list is already empty.
+
+Making True Copy of a List
+---------------------------
+a = [1, 2, 3]
+b = a
+
+>>> a = [1, 2, 3]		 
+>>> b = a		 
+>>> a[1] = 5		 
+>>> a		 
+[1, 5, 3]
+>>> b		 
+[1, 5, 3]
+>>> 
+
+---
+>>> a = [1, 2, 3]
+>>> b = list(a)
+>>> a[1] = 5
+>>> a
+[1, 5, 3]
+>>> b
+[1, 2, 3]
+>>> 
+
+-------------------
+List Functions and Methods
+
+List.append(<item>)
+List.extend(<list>)
+
+t2.extend(10) ---> Error
+
+List.insert(<pos>, <item>) --> Takes two arguments and retiurns  no value
+list.insert(0, x) --> will insert element x at the fron t of the list i.e at index 0
+list.insert(len(a), x)--> at the end of the list.
+list.pop()
+list.remove(<value>)--> Takes one essential argument and does not return anything.
+The remove() will report an error if there is no such item in the list.
+list.reverse()--> Takes no argument, returns no list, reverse the list 'in place'
+list.sort() function sorts the items of the list, by default in increasing order.
+This is done 'in place'. It doesnot create a new list
+
+List.sort()
+List.sort(reverse=True)
+
+
 
 
 
