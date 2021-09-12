@@ -344,6 +344,124 @@ This is done 'in place'. It doesnot create a new list
 List.sort()
 List.sort(reverse=True)
 
+String Manipulation
+-------------------
+single quotation marks
+double quotation marks
+triple quotation marks
+
+The index(also called subscript) is the numbered position of a letter in the string.
+In Python, indices begin 0 onwards in the forward direction and -1, -2, ... in the 
+backward direction.
+
+Traversing refer to iterating through the elements of a sting, one character at a time.
+
+Basic operators
+String Concatenation operator +
+String Replication operator *
+"2" * 3 ---> valid
+"2" * "3" --->invalid
+
+Membership operator
+"in"
+"not in"
+
+ord() that takes a single character and returns the corresponding ASCII value or unicode value
+>>> ord('a')
+97
+
+chr() returns the character corresponding to that ASCII value.
+>>> chr(98)
+'b'
+
+String Functions
+-----------------
+string.capitalize()
+
+string.find(sub[, start[, end]])---->
+Returns the lowest index in the string where the substring sub is found within the slice range of start and end, returns -1 if sub is not found.
+
+>>> string = 'it goes as - ringa ringa roses'
+>>> sub = 'ringa'
+>>> string.find(sub)
+13
+>>> string.find(sub, 15, 22)
+-1
+>>> string.find(sub, 15, 25)
+19
+>>> 
+
+string.isalnum()
+string.isalpha()
+string.isdigit()
+string.islower()
+string.isspace()---> Returns True if there are only whitespace characters in the string.There must be at least one character.It returns False otherwise.
+
+>>> string1 = "    "
+>>> string2 = ""
+>>> string1.isspace()
+True
+>>> string2.isspace()
+False
+
+string.isupper()
+string.lower()
+string.upper()
+
+string.lstrip([chars])
+Returns a copy of the string with leading characters removed.
+If used without any argument, it removes the leading whitespaces.
+
+>>> string = "   hello"
+>>> string.lstrip()
+'hello'
+>>> string2 = 'There'
+>>> string2.lstrip('the')
+'There'
+>>> string2.lstrip('The')
+'re'
+>>> string2.lstrip('he')
+'There'
+>>> string2.lstrip('Te')
+'here'
+>>> string2.lstrip('Teh')
+'re'
+>>> string2.lstrip('heT')
+'re'
+
+>>> "saregamapadhanisa".lstrip("tears")
+'gamapadhanisa'
+>>> "saregamapadhanisa".lstrip("races")
+'gamapadhanisa'
+>>>
+
+string.rstrip([chars])
+Returns a copy of the string with trailing characters removed.
+If used without any argument, it removes the trailing whitespaces.
+
+>>> string = "hello   "
+>>> string.rstrip()
+'hello'
+>>> string2 = 'There'
+>>> string2.rstrip('ere')
+'Th'
+>>> string2.rstrip('case')
+'Ther'
+>>> string2.rstrip('care')
+'Th'
+>>> string2.rstrip('car')
+'There'
+>>> 
+
+>>> "saregamapadhanisa".rstrip("tears")
+'saregamapadhani'
+>>> "saregamapadhanisa".rstrip("races")
+'saregamapadhani'
+
+
+
+
+
 
 
 

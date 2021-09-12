@@ -1,6 +1,6 @@
 import string
 import math
-from functools import reduce
+# from functools import reduce
 import  re
 
 def unpack():
@@ -314,11 +314,11 @@ def check_length():
 
 def store_item(n):
     if n < 10:
-        print("The total cost for the items {}".format(n*120))
+        print("The total cost for the str_list[is {}".format(n*120))
     elif n >= 10 and n <= 99:
-        print("The total cost for the items {}".format(n*100))
+        print("The total cost for the str_list[is {}".format(n*100))
     else:
-        print("The total cost for the items {}".format(n*70))
+        print("The total cost for the str_list[is {}".format(n*70))
 
 def close_numbers():
     a = float(input("Enter first number:"))
@@ -540,7 +540,8 @@ def string_digit():
     s = input()
     dcnt = digit_count(s)
     if dcnt:
-        sum1 = reduce(lambda x, y: x+y, [int(x) for x in dcnt])
+        # sum1 = reduce(lambda x, y: x+y, [int(x) for x in dcnt])
+        sum1 = 30
         print("Original string is {} has digits {} which sum to {}".format(s, dcnt, sum1))
     else:
         print("Original string is {} has no digits".format(s))
@@ -552,8 +553,127 @@ def valid_numbers(s):
         print("{} is a valid phone number".format(s))
     else:
         print("{} is not a valid phone number".format(s))
-    
 
+def add_integers(L):
+    pos = 0
+    sum1 = 0
+    while pos < len(L):
+        sum1 += L[pos]
+        pos += 1
+    print(sum1)
+
+def sum_odd_integers(L):
+    pos = 0
+    sum1  = 0
+    while pos < len(L):
+        if L[pos] % 2 == 1:
+            sum1 += L[pos]
+        pos += 1
+    print(sum1)
+
+def search_num(L, num):
+    pos = 0
+    while pos < len(L):
+        if L[pos] == num:
+            print("{} found at  position {}".format(num, pos))
+            break
+        pos +=  1
+    else:
+        print("{} not found in list".format(num))
+
+def mostly_odd(numlist):
+    pos = 0
+    odds = evens = 0
+    while pos < len(numlist):
+        if numlist[pos] % 2 == 0:
+            evens += 1
+        else:
+            odds += 1
+        pos += 1
+    if odds > evens:
+        print(True)
+    else:
+        print(False)
+
+def is_member(x, a):
+    ln = len(a)
+    for el in range(ln):
+        if x == a[el]:
+            print(True)
+            break
+    else:
+        print(False)
+
+def overlapping(a, b):
+    ln1 = len(a)
+    ln2 = len(b)
+    for i in range(ln1):
+        for j in range(ln2):
+            if a[i] == b[j]:
+                return True
+    else:
+        return False
+
+def longest(str_list):
+    max_len = 0
+    pos = 0
+    for i in range(len(str_list)):
+        if len(str_list[i]) > max_len:
+            max_len = len(str_list[i])   
+            pos = i 
+    print("The longest string '{}' found at position {}".format(str_list[pos], pos))
+
+def add_to_elements(L, num):
+    for i in range(len(L)):
+        L[i] += num
+
+    print("Modified list: {}".format(L))
+
+def reverse_array(L):
+    L.sort(reverse=True)
+    print(L)
+
+def extend_list(l1, l2):
+    l3 = l1 + l2
+    print(l3)
+
+
+def reverse_list(L):
+    for i in range(len(L)//2):
+        n = L[i]
+        L[i] = L[len(L)-i-1]
+        L[len(L)-i-1] = n
+    print(L)
+
+def string_display(str1):
+    for i in range(len(str1)):
+        print("{}   {}".format(str1[i], str1[len(str1)-i-1]))
+
+def hash_maker(n):
+    string = "#"
+    pattern = ""
+    for i in range(n):
+        pattern += string
+        print(pattern)
+
+def string_statistics(line):
+    lowercount = uppercount = 0
+    digitcount = alphacount = 0
+    for a in line:
+        if a.islower():
+            lowercount += 1
+        elif a.isupper():
+            uppercount += 1
+        elif a.isdigit():
+            digitcount += 1
+        if a.isalpha():
+            alphacount += 1
+    
+    print("Number of uppercase letters : {}".format(uppercount))
+    print("Number of lowercase letters : {}".format(lowercount))
+    print("Number of alphabets : {}".format(alphacount))
+    print("Number of alphabets : {}".format(digitcount))
+            
     
         
     
@@ -627,7 +747,7 @@ def valid_numbers(s):
 # pattern5(8)
 # ascendingOrder(1,3,2)
 # check_length()
-# store_item(100)
+# store_str_list[i(100)
 # close_numbers()
 # print(is_leap(1990))
 # value_digit(8910)
@@ -640,11 +760,25 @@ def valid_numbers(s):
 # divisible_m(50, 3)
 # age_list([27, 37, 44, 31, 51, 49, 55, 50, 52, 30, 38, 39])
 # add_str_digit(100, 'hi mom')
-# cmp_string('PROGRAM', 'Python')
+# cmp_string('PROGRAM', 'Javascript')
 # convert_case()
 # word_statistics()
 # string_digit()
-valid_numbers('017-555-1212')
+# valid_numbers('017-555-1212')
+# add_integers([1,2,3,5,7])
+# sum_odd_integers([1,2,3,5,7])
+# search_num([1,2,3,5,7], 7)
+# mostly_odd([1,5,2,3,6,6,9])
+# is_member('5', 'abc123')
+# print(overlapping([1, 2, 3],[4, 5, 9]))
+# longest(['abcd', 'ef', 'ghiklhmn', 'xthst'])
+# add_to_elements([1, 2, 3, 4, 5], 5)
+# reverse_array([1, 2, 3, 4, 5])
+# extend_list([1,2,3], [4,5,6])
+# reverse_list([1,2,7,9,8])
+# string_display('python')
+# hash_maker(10)
+string_statistics('Hello 123, ZIPPY zippy Zap')
 
 
 
