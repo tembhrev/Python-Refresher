@@ -1,0 +1,232 @@
+Tuples
+------
+Python tuples are immutable i.e you can not change the elements of a tuple in place
+Tuples are formed by placing a comma-separated tuple of expression in parenthesis.
+
+Creating and Accessing Tuples
+----------------------------
+()                   #Empty tuple
+(1,2,3)              #tuple of integers
+(1, 2.5, 3.7,9)      #tuple of numbers(integers and floating point)
+('a', 'b', 'c')      #tuple of characters
+
+
+Creating Tuples
+---------------
+Empty tuple
+T= ()  
+
+Single element Tuple
+t = (1) ---->wrong just a integer expression, not a tuple
+
+t = (1,)
+or
+t = 1,
+
+Creating tuples from existing Sequences
+---------------------------------------
+T = tuple(<sequence>)
+where <sequence> can be any kind of sequence object including strings, lists and tuples.
+
+t1 = tuple("hello")
+L = ['w', 'e', 'r', 't', 'y']
+t2 = tuple(L)
+
+t1 = tuple(input("Enter tuple elements:))
+or
+t1 = tuple(map(int, input().split()))
+or 
+t1 = eval(input("Enter tuple to be added:"))
+Enter tuple to be added:(2,4,'a',[3,4])
+
+Accessing Tuples
+-----------------
+Other than accessing items, you can do all that you can do with lists
+
+How tuples are internally organized
+-----------------------------------
+Tuples are stored in memory exactly like strings, except that because some of their objects are larger than others, they store a reference at each index instead of single character as in strings.
+Each of the individual items of the tuple are stored somewhere else in memory.
+
+Tuples are similar to lists in following ways:
+----------------------------------------------
+length function -len()
+Indexing and slicing
+Membership operators --> in and not in
+Concatenation and Replication operators(* and +)
+
+The individual elements areaccessed through their indexes given in square brackets.
+
+>>> a = ('a', 'e', 'i', 'o', 'u') length of string=5
+>>> a[-2]
+'o'
+>>> a[-2+5]
+
+Tuple operations
+----------------
+1. Joining tuples
+
+>>> tp1 = (1,3,5)
+>>> tp2 = (6,7,8)
+>>> tp1 + tp2
+(1, 3, 5, 6, 7, 8)
+
+tuple + number          ---->wrong
+tuple + complex -number ---->wrong
+tuple + string          ---->wrong
+tuple + (3)             ---->wrong  
+
+tuple + (3,)            ---->right
+
+Slicing the tuples
+------------------
+tp1 = (10, 12, 14, 20, 22, 24, 30, 32, 34)
+>>> tp1[3:30]  ----->Giving upper limit way beyond the size of the tuple, but python return elements from tuple falling in range 3
+(20, 22, 24, 30, 32, 34)  
+
+>>>tp1[-15:7]   ----->Giving lower limit much lower, but python retuirns elements from tuple falling in range -15 onwards < 7
+(10, 12, 14, 20, 22, 24, 30)
+
+Unpacking Tuples
+----------------
+Creating a tuple from a set of values is called packing and its reverse i.e creating individual values from a tuple's elements is called unpacking.
+
+(10, 12, 14, 20, 22, 24, 30)
+>>> t = (1, 2, 'A', 'B')
+>>> w,x,y,z = t
+>>> w
+1
+>>> x
+2
+>>> y
+'A'
+>>> z
+'B'
+>>> 
+
+w,x,y = t
+ValueError: too many values to unpack (expected 3)
+
+w,x,y,a,b = t
+ValueError: not enough values to unpack (expected 5, got 4)
+
+Tuple Function and Methods
+--------------------------
+len()
+min()
+max()
+
+tp13 = ('1',1,2,"Rustom",(1,2),[1,2])
+min and max won't work for this statement
+TypeError: '>' not supported between instances of 'int' and 'str'
+
+but this feature(Comparing objects of different types is leagl) and supported in 
+Python 2
+lists<strings<tuples
+
+cmp() method not supported in python 3.x
+
+tuple(<sequence>)
+This method is a constructor method that can be used to create tuples from different types of values.
+
+Tuples can be nested
+a = (1,2,3)
+a[1:1] -- returns empty tuple
+
+A slice operator returns a part of the tuple.It need not return a new tuple always and can return the original tuple using t[:]
+
+
+Dictionaries
+------------
+Dictionaries are mutable, unordered collections with elements in the form of a key:value pairs that associate keys to values.
+keys of dictionary must be of immutable types
+*python string
+*a number
+*a tuple
+
+Accessing Elements of a dictionary
+<dictionary-name>[<key>]
+
+Using for loop we can traverse the dictionary
+
+
+Accessing keys or Values Simultaneously
+---------------------------------------
+>>> d
+{'1': 'one', '2': 'two', '3': 'three'}
+>>> d.keys()
+dict_keys(['1', '2', '3'])
+>>> d.values()
+dict_values(['one', 'two', 'three'])
+
+Characteristics of a dictionary
+---------------------------------
+1.Unordered set
+2.Not a sequence
+3.Indexed by keys, not numbers
+4.keys must be unique
+5.mutable
+<dictionary>[<key>] = <value>
+6.Internally stored as mappings
+Internally, the key:value pairs of a dictionary are associated with one another with some internal function(called hash-function).This way of linking is called mapping.
+
+Ways to create Dictionary
+-------------------------
+d = {}
+or
+d = dict()
+
+Updating Existing elements in a Dictionary
+------------------------------------------
+<dictionary>[<key>] = <value>
+
+But make sure that the key must exist in the dictionary otherwise new entry will be added to the dictionary
+
+Deleting Elements from a dictionary
+-----------------------------------
+del <dictionary>[<key>]
+
+<dictionary>.pop(<key>)
+
+If you try to delete a key which does not exist, the Python returns error in both the cases but pop() method allows you to specify what to display when given doesnot exist, rather than the defaault error message.
+
+>>> d.pop('3',"Not found")
+'Not found'
+>>> 
+
+Checking for the existence of the key
+-------------------------------------
+key in dictionary
+key not in dictionary
+
+Dictionary functions and methods
+---------------------------------
+len()
+clear()
+>>> d = {'1':'one', '2':'two','3':'three'}
+>>> d.clear()
+>>> d
+
+d.get('1')
+>>>'one'
+d.get('5')-- won't raise any error if key doesn't exist
+can define error message
+d.get('5',"Error!! key not found")
+
+has_key() is deprecated in python 3
+
+items() - returns all of the items in the dictionary as a sequence of (key, value) tuples.
+
+keys()
+values()
+
+update(): This method merges key:value pairs from the new dictionary into the original dictionary, adding pr replacing as needed.
+
+cmp()- deprecated in python 3
+
+
+
+
+
+
+          
